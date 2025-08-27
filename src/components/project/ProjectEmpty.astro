@@ -15,8 +15,10 @@ const { description } = Astro.props;
   <div
     class="bg-gray-200 group-hover:bg-gray-200/95 dark:bg-[#001219] group-hover:dark:bg-[#001219]/90 rounded-lg h-full relative z-[2] flex flex-col"
   >
-    <div class="p-2 grid place-content-center h-full">
-      <h3 class="sm:text-xl font-semibold uppercase neonText">
+    <div class="p-2 grid place-content-center h-24 sm:h-full">
+      <h3
+        class="sm:text-lg font-semibold uppercase inline-flex text-gradient bg-gradient-to-r from-[#461500] via-[#f57d02] to-[#1b0900] dark:from-[#5ccdcf] dark:via-[#0a9396] dark:to-[#c4e6ec] bg-[200%_auto] bg-clip-text text-transparent"
+      >
         {description}
       </h3>
     </div>
@@ -24,91 +26,13 @@ const { description } = Astro.props;
 </div>
 
 <style>
-  :root {
-    --text: #1f2937;
-    --text-nd: #bb3e03;
-    --anim: pulsate-light 1.5s infinite alternate;
-    --shad: 
-      /* 0 0 7px var(--text), */
-      /* 0 0 10px var(--text), */
-      /* 0 0 21px var(--text), */
-      0 0 42px var(--text-nd),
-      /* 0 0 82px var(--text-nd), */
-      0 0 92px var(--text-nd),
-      0 0 102px var(--text-nd),
-      0 0 151px var(--text-nd);
+  .text-gradient {
+    animation: text-gradient 1.5s linear infinite;
   }
 
-  html.dark {
-    --text: #e5e7eb;
-    --text-nd: #006073;
-    --anim: pulsate-dark 1.5s infinite alternate;
-    --shad:
-      /* 0 0 7px var(--text), */
-      /* 0 0 10px var(--text), */
-      0 0 21px var(--text),
-      0 0 42px var(--text-nd),
-      0 0 82px var(--text-nd),
-      0 0 92px var(--text-nd),
-      0 0 102px var(--text-nd),
-      0 0 151px var(--text-nd);
-  }
-
-  .neonText {
-    color: var(--text);
-    text-shadow: var(--shad);
-    animation: var(--anim);
-  }
-
-  @keyframes pulsate-dark {
-    100% {
-      text-shadow:
-      /* 0 0 4px var(--text), */
-        /* 0 0 11px var(--text), */
-        /* 0 0 19px var(--text), */
-        0 0 40px var(--text-nd),
-        0 0 80px var(--text-nd),
-        0 0 90px var(--text-nd),
-        0 0 100px var(--text-nd),
-        0 0 150px var(--text-nd);
-    }
-
-    0% {
-      text-shadow:
-      /* 0 0 2px var(--text), */
-      /* 0 0 4px var(--text), */
-        0 0 6px var(--text),
-        0 0 10px var(--text-nd),
-        0 0 45px var(--text-nd),
-        0 0 55px var(--text-nd),
-        0 0 70px var(--text-nd),
-        0 0 80px var(--text-nd);
-    }
-  }
-
-  @keyframes pulsate-light {
-    100% {
-      text-shadow:
-        /* 0 0 4px var(--text), */
-        /* 0 0 11px var(--text), */
-        /* 0 0 19px var(--text), */
-        0 0 40px var(--text-nd),
-        /* 0 0 80px var(--text-nd), */ 
-        0 0 90px var(--text-nd),
-        0 0 100px var(--text-nd),
-        0 0 150px var(--text-nd);
-    }
-
-    0% {
-      text-shadow:
-        /* 0 0 2px var(--text), */
-        /* 0 0 4px var(--text), */
-        /* 0 0 6px var(--text), */
-        0 0 10px var(--text-nd),
-        /* 0 0 45px var(--text-nd), */ 
-        0 0 55px var(--text-nd),
-        0 0 70px var(--text-nd),
-        0 0 80px var(--text-nd);
+  @keyframes text-gradient {
+    to {
+      background-position: 200% center;
     }
   }
 </style>
